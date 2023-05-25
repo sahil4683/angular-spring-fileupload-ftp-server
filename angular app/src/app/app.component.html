@@ -1,0 +1,18 @@
+<!-- app.component.html -->
+<form (ngSubmit)="uploadFile()" #uploadForm="ngForm">
+  <div>
+    <label for="issueType">Issue Type:</label>
+    <input type="text" id="issueType" name="issueType" [(ngModel)]="issueType" required>
+  </div>
+  <div>
+    <label for="panNo">PAN No:</label>
+    <input type="text" id="panNo" name="panNo" [(ngModel)]="panNo" required>
+  </div>
+  <div>
+    <label for="file">File:</label>
+    <input type="file" id="file" name="file" (change)="onFileChange($event)" maxFileSize="10485760" required>
+  </div>
+  <button type="submit" [disabled]="!uploadForm.form.valid">Upload</button>
+</form>
+
+<h1>{{uploadStatus}}</h1>
